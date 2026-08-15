@@ -1,0 +1,93 @@
+site_name: Simulation Workshop
+site_url: https://sitename.example
+
+nav:
+  - Home: index.md
+  - Workshops:
+    - Modelica: Modelica_Workshop.md
+    - Python: Python_Workshop.md
+    - Julia: Julia_Workshop.md
+  - Content: content-tabs.md
+  - Quizes: Quizes.md
+  - Contact Me:
+    - About: about.md
+theme:
+  name: material
+  palette:
+    # Dark Mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Dark mode
+      primary: green
+      accent: deep purple
+
+    # Light Mode
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Light mode
+      primary: green
+      accent: deep orange
+
+  font:
+    text: Comfortaa
+    code: Roboto Mono
+
+  
+  logo: assets/small_log.png
+  favicon: assets/favicon.ico
+
+  features:
+    - navigation.footer
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+        custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+extra:
+  extra_css:
+  - stylesheets/extra.css
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/username
+      name: GitHub
+
+    - icon: fontawesome/brands/x-twitter
+      link: https://x.com/username
+      name: X (Twitter)
+
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/username
+      name: LinkedIn
+
+    - icon: fontawesome/brands/youtube
+      link: https://youtube.com/@channel
+      name: YouTube
+
+
+plugins:
+  - search
+  - mkdocs_quiz
+  
+
+
+
+
+
+
+
