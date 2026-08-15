@@ -1,6 +1,6 @@
 # Welcome to simulation workshop!
 <p align="center">
-  <img src="../assets/channel_header.png" width="1400" alt="Architecture Diagram">
+  <img src="./assets/channel_header.png" width="1400" alt="Architecture Diagram">
 </p>
 This website is part of my desire to teach and learn system modeling.
 
