@@ -4,13 +4,16 @@ site_url: https://simulation-workshop.github.io/simulation-workshop/
 nav:
   - Home: index.md
   - Workshops:
-    - Modelica: Modelica_Workshop.md
-    - Python: Python_Workshop.md
-    - Julia: Julia_Workshop.md
-  - Content: content-tabs.md
-  - Quizes: Quizes.md
-  - Contact Me:
-    - About: about.md
+    - Modelica: Workshops/Modelica_Workshop.md
+    #- Python: Python_Workshop.md
+    #- Julia: Julia_Workshop.md
+  - Articles: 
+    - What is a model: Articles/What_is_model.md
+    - Purpose of a simulation: Articles/Story-telling-simulation.md
+    - Models vs Simulations: Articles/Models-vs-simulations.md
+  - Quizes: 
+      - Modelica Quiz: Quiz/Modelica_Quiz.md
+  - About: about.md
 theme:
   name: material
   palette:
@@ -31,7 +34,7 @@ theme:
       accent: deep orange
 
   font:
-    text: Comfortaa
+    text: Open Sans
     code: Roboto Mono
 
   
@@ -42,6 +45,7 @@ theme:
     - navigation.footer
 
 markdown_extensions:
+  - md_in_html
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -59,26 +63,29 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
 
-extra:
-  extra_css:
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_css:
   - stylesheets/extra.css
-  social:
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra:
+    social:
     - icon: fontawesome/brands/github
-      link: https://github.com/username
+      link: https://github.com/simulation-workshop
       name: GitHub
 
-    - icon: fontawesome/brands/x-twitter
-      link: https://x.com/username
-      name: X (Twitter)
-
     - icon: fontawesome/brands/linkedin
-      link: https://linkedin.com/in/username
+      link: https://www.linkedin.com/in/vaisakh-t-v-4a3505112/
       name: LinkedIn
 
     - icon: fontawesome/brands/youtube
-      link: https://youtube.com/@channel
+      link: https://www.youtube.com/@systemModelingChannel
       name: YouTube
-
 
 plugins:
   - search

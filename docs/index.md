@@ -5,20 +5,19 @@
 This website is part of my desire to teach and learn system modeling.
 
 ??? "Introduction to system modeling using Modelica"
-    * `mkdocs new [dir-name]` - Create a new project.
-    * `mkdocs serve` - Start the live-reloading docs server.
-    * `mkdocs build` - Build the documentation site.
-    * `mkdocs -h` - Print help message and exit.
+    Model complex systems more efficiently.
+    Modelica is an object oriented language to model cyber-physical systems. It supports acausal connection of reusable components governed by mathematical equations to facilitate modeling from first principles.
+
+    [**Video and text-based tutorials about Modeling & Simulation using Modelica**](./Workshops/Modelica_Workshop.md)
 
 ??? "Numerical Simulations using Python"
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+    **Coming Soon**
 
 ??? "Scientific Computing using Julia"
 
-
+    **Coming Soon**
 
 ??? "Understanding the physics behind simulations"
+    
+    **Coming Soon**

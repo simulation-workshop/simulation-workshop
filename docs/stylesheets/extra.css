@@ -1,3 +1,47 @@
 .md-header__title {
-  font-size: 3rem;
+  font-size: 1rem;
+}
+
+/* Global style for a "highlight" section */
+.section-highlight {
+  background-color: #e3f2fd; /* Soft blue background */
+  border-left: 4px solid #2196f3; /* Blue left accent border */
+  padding: 15px;
+  border-radius: 4px;
+  margin: 10px 0;
+}
+
+/* Global style for a "warning" section */
+.section-alert {
+  background-color: #ffebee; /* Soft red background */
+  border-left: 4px solid #f44336; /* Red left accent border */
+  padding: 15px;
+  border-radius: 4px;
+  margin: 20px 0;
+}
+.highlight-text {
+  color: #ff0000; /* Change this to your preferred color code */
+}
+
+/* Force the color for headings and text inside your class */
+.highlight-text, 
+.highlight-text h1, 
+.highlight-text h2, 
+.highlight-text h3, 
+.highlight-text p {
+  color: #2e7d32 !important; 
+}
+
+/* Target all block and inline math rendered by MathJax/KaTeX */
+.arithmatex, math, .MathJax {
+  color: #1976d2 !important; /* A nice vibrant blue */
+}
+
+/* Optional: If you want a soft background highlight box around block equations */
+div.arithmatex {
+  background-color: #e3fde3;
+  padding: 1px 1px;
+  border-radius: 6px;
+  border-left: 4px solid #3ed219;
+  margin: 16px 0;
 }
