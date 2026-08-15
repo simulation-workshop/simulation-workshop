@@ -1,5 +1,5 @@
 site_name: Simulation Workshop
-site_url: https://sitename.example
+site_url: https://simulation-workshop.github.io/simulation-workshop/
 
 nav:
   - Home: index.md
