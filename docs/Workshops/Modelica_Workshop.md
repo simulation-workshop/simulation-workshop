@@ -46,6 +46,18 @@ This is the third video in a series of tutorials on System Simulation, OpenModel
   allowfullscreen>
 </iframe>
 
+### **Building Custom Models in Modelica**
+
+This is the fourth video in a series of tutorials on System Simulation, OpenModelica interface and Modelica language. We will continue with the same problem statement of heating and cooling of the metal ball and explore the concepts of component models. Categorize component and sub-system models, Learn how to extend an existing model in Modelica. We will rebuild the simulation model using a combination of custom model and modelica standard components. This is the last video in this series
+
+<iframe width="560"
+ height="315"
+  src="https://www.youtube.com/embed/dP30kI8YRTw?si=qM_zEZGNj8urvmLK" 
+  title="YouTube video player" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+  </iframe>
+
 ### **Additional Resources**
 
 !!! info "Additional resources to set-up and learn Modelica"
