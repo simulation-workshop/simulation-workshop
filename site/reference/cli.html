@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Command line | Acme Docs</title>
+<title>Command line | Simulation Workshop</title>
 <meta name="description" content="Documentation for the Acme platform.">
 <script>
 (function () {
@@ -29,7 +29,7 @@
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
     </button>
     <a class="brand" href="../index.html">
-<span class="brand-mark" aria-hidden="true">A</span>      <span class="brand-name">Acme Docs</span>
+<span class="brand-mark" aria-hidden="true">S</span>      <span class="brand-name">Simulation Workshop</span>
     </a>
     <nav class="tabs" aria-label="Sections">
       <a href="../getting-started/installation.html">Getting Started</a>
@@ -121,7 +121,7 @@
     <footer class="page-footer">
       <nav class="pager" aria-label="Previous and next pages">
 <a class="prev" href="../guide/embedding.html"><small>Previous</small><span>Embeds &amp; includes</span></a>      </nav>
-      <p class="copyright">© 2026 Acme Inc.</p>
+      <p class="copyright">© simulationworkshop</p>
     </footer>
   </main>
 
@@ -154,5 +154,16 @@
 
 <script src="../_static/search_index.js"></script>
 <script src="../_static/script.js"></script>
+<script>
+(function () {
+  var last = null;
+  setInterval(function () {
+    fetch('../_static/build-id.txt', { cache: 'no-store' })
+      .then(function (r) { return r.text(); })
+      .then(function (t) { if (last && t !== last) location.reload(); last = t; })
+      .catch(function () {});
+  }, 1000);
+})();
+</script>
 </body>
 </html>

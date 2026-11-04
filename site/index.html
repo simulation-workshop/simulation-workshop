@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Acme Docs</title>
+<title>Simulation workshop | Simulation Workshop</title>
 <meta name="description" content="Documentation for the Acme platform.">
 <script>
 (function () {
@@ -29,7 +29,7 @@
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
     </button>
     <a class="brand" href="index.html">
-<span class="brand-mark" aria-hidden="true">A</span>      <span class="brand-name">Acme Docs</span>
+<span class="brand-mark" aria-hidden="true">S</span>      <span class="brand-name">Simulation Workshop</span>
     </a>
     <nav class="tabs" aria-label="Sections">
       <a href="getting-started/installation.html">Getting Started</a>
@@ -77,27 +77,25 @@
 
   <section class="hero">
     <div class="hero-copy">
-      <h1>Write Markdown. Get a documentation site.</h1>
-<p class="hero-text">Describe your pages in one file, drop your Markdown into a folder, and publish a fast, searchable site that works on any host.</p>      <div class="hero-actions">
+      <h1>Simulation Workshop</h1>
+<p class="hero-text">Building Worlds through equations</p>      <div class="hero-actions">
         <a class="btn btn-primary" href="getting-started/installation.html">Get started</a>
-        <a class="btn btn-secondary" href="guide/embedding.html">See embeds in action</a>
+        <a class="btn btn-secondary" href="guide/embedding.html">Modelica Video Tutorials</a>
       </div>
     </div>
     <div class="hero-media">
       <figure class="window">
-        <figcaption class="window-bar">site.yml</figcaption>
-        <div class="highlight"><pre><span></span><span class="nt">site_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Acme Docs</span>
-
-<span class="nt">nav</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Home</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">index.md</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Getting Started</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Installation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">getting-started/installation.md</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Configuration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">getting-started/configuration.md</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Guide</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Writing content</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">guide/writing-content.md</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Embeds &amp; includes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">guide/embedding.md</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Reference</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Command line</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reference/cli.md</span>
+        <figcaption class="window-bar">modelica example.mo</figcaption>
+        <div class="highlight"><pre><span></span><span class="kr">model</span> <span class="nc">simpleSpringMass</span>
+  <span class="kr">parameter</span> <span class="nb">Real</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+  <span class="kr">parameter</span> <span class="nb">Real</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+  <span class="kr">parameter</span> <span class="nb">Real</span> <span class="n">C</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+  <span class="nb">Real</span> <span class="n">x</span><span class="p">;</span>
+  <span class="nb">Real</span> <span class="n">v</span><span class="p">;</span>
+<span class="kr">equation</span>
+  <span class="kr">der</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
+  <span class="n">M</span><span class="o">*</span><span class="kr">der</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">+</span> <span class="n">C</span><span class="o">*</span><span class="n">v</span> <span class="o">+</span> <span class="n">k</span><span class="o">*</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kr">end</span> <span class="nc">simpleSpringMass</span><span class="p">;</span>
 </pre></div>
 
       </figure>
@@ -105,10 +103,10 @@
   </section>
 
   <section class="features" aria-label="Highlights">
-    <a class="feature wide" href="getting-started/configuration.html"><h2>Your layout lives in one file</h2><p>List pages in site.yml and they become the sidebar, the section tabs, and the previous and next links. Leave the list out and the folder structure is used instead.</p></a>
-    <a class="feature" href="reference/cli.html"><h2>Search that works offline</h2><p>Press Ctrl+K or Cmd+K to search every page and heading. No server needed.</p></a>
-    <a class="feature" href="guide/embedding.html"><h2>Embeds and snippets</h2><p>Add YouTube, PDFs and live demos with one line, and reuse Markdown partials.</p></a>
-    <a class="feature wide" href="getting-started/configuration.html"><h2>Light and dark, built in</h2><p>The theme follows the reader&#39;s system setting and remembers their choice, with an accent color you set in one line.</p></a>
+    <a class="feature wide" href="systemsimulation/systemsimulation.html"><h2>The Philosophy of System Simulation</h2><p>Read short and comprehensive articles about the concept of system simulation and methodologies used for it. Understand governing equations. System Dynamics, Numerical techniques, Visualizations and lot more.</p></a>
+    <a class="feature" href="reference/cli.html"><h2>Modelica Tips and Tricks</h2><p>Press Ctrl+K or Cmd+K to search every page and heading. No server needed.</p></a>
+    <a class="feature" href="guide/embedding.html"><h2>Modelica Quiz Corner</h2><p>Add YouTube, PDFs and live demos with one line, and reuse Markdown partials.</p></a>
+    <a class="feature wide" href="getting-started/configuration.html"><h2>Articles and Blog Posts</h2><p>The theme follows the reader&#39;s system setting and remembers their choice, with an accent color you set in one line.</p></a>
   </section>
 
   <div class="home-body"><article class="md"><h2 id="quick-start">Quick start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
@@ -119,7 +117,7 @@ python<span class="w"> </span>build.py<span class="w"> </span>serve
 <p>Open <code>http://127.0.0.1:8000</code>. Edit any file in <code>docs/</code> and the page reloads. When you're ready to publish, run <code>python build.py build</code> and upload the <code>site/</code> folder.</p></article></div>
 
   <footer class="site-footer">
-    <span>© 2026 Acme Inc.</span>
+    <span>© simulationworkshop</span>
   </footer>
 </div>
 <div class="scrim"></div>
@@ -139,5 +137,16 @@ python<span class="w"> </span>build.py<span class="w"> </span>serve
 
 <script src="_static/search_index.js"></script>
 <script src="_static/script.js"></script>
+<script>
+(function () {
+  var last = null;
+  setInterval(function () {
+    fetch('_static/build-id.txt', { cache: 'no-store' })
+      .then(function (r) { return r.text(); })
+      .then(function (t) { if (last && t !== last) location.reload(); last = t; })
+      .catch(function () {});
+  }, 1000);
+})();
+</script>
 </body>
 </html>

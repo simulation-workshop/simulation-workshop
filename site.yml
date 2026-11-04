@@ -1,11 +1,11 @@
 # mdsite configuration
-site_name: Acme Docs
+site_name: Simulation Workshop
 site_description: Documentation for the Acme platform.
 site_url: ""                 # set for canonical links, e.g. https://docs.acme.dev
 docs_dir: docs
 site_dir: site
 use_directory_urls: false    # false: guide/page.html (opens from disk) | true: guide/page/
-copyright: "© 2026 Acme Inc."
+copyright: "simulationworkshop"
 show_updated: false          # show "Last updated" from each file's modified time
 
 # repo_url: https://github.com/acme/docs
