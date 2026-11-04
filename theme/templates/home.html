@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block body_class %}is-home{% endblock %}
+{% block layout %}
+{% from "macros.html" import render_nav %}
+<aside class="sidebar" id="sidebar">
+  <nav aria-label="Site navigation">{{ render_nav(nav, theme.expand_all) }}</nav>
+</aside>
+
+<div class="home">
+  <div class="home-bg" aria-hidden="true"></div>
+
+  {% if hero %}
+  <section class="hero">
+    <div class="hero-copy">
+      <h1>{{ hero.title or page.title }}</h1>
+      {% if hero.text %}<p class="hero-text">{{ hero.text }}</p>{% endif %}
+      {% if hero.actions %}
+      <div class="hero-actions">
+        {% for a in hero.actions %}
+        <a class="btn btn-{{ 'primary' if a.style == 'primary' else 'secondary' }}" href="{{ a.href }}">{{ a.text }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    {% if hero.code_html %}
+    <div class="hero-media">
+      <figure class="window">
+        <figcaption class="window-bar">{{ hero.code_title or 'example' }}</figcaption>
+        {{ hero.code_html }}
+      </figure>
+    </div>
+    {% elif hero.image_href %}
+    <div class="hero-media"><img class="hero-image" src="{{ hero.image_href }}" alt="{{ hero.image_alt or '' }}"></div>
+    {% endif %}
+  </section>
+  {% endif %}
+
+  {% if features %}
+  <section class="features" aria-label="Highlights">
+    {% for f in features %}
+    {% if f.href %}
+    <a class="feature{{ ' wide' if f.wide }}" href="{{ f.href }}"><h2>{{ f.title }}</h2><p>{{ f.text }}</p></a>
+    {% else %}
+    <div class="feature{{ ' wide' if f.wide }}"><h2>{{ f.title }}</h2><p>{{ f.text }}</p></div>
+    {% endif %}
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if content|trim %}
+  <div class="home-body"><article class="md">{{ content }}</article></div>
+  {% endif %}
+
+  <footer class="site-footer">
+    <span>{{ site.copyright or site.site_name }}</span>
+  </footer>
+</div>
+{% endblock %}

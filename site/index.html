@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en" data-mode="auto">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acme Docs</title>
+<meta name="description" content="Documentation for the Acme platform.">
+<script>
+(function () {
+  var d = document.documentElement, m = null;
+  try { m = localStorage.getItem('mdsite-theme'); } catch (e) {}
+  m = m || d.getAttribute('data-mode');
+  if (m !== 'light' && m !== 'dark') m = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  d.setAttribute('data-theme', m);
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Geist:wght@400..700&family=Geist+Mono:wght@400..600&display=swap">
+<link rel="stylesheet" href="_static/pygments.css">
+<link rel="stylesheet" href="_static/style.css">
+<style>:root{--accent:#00796b;--on-accent:#ffffff}[data-theme="dark"]{--accent:#3ddbc0;--on-accent:#06120f}</style>
+</head>
+<body class="is-home" data-root="">
+
+<div class="topbar-wrap">
+  <header class="topbar">
+    <button class="icon-btn menu-btn" type="button" aria-label="Open navigation" aria-controls="sidebar">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+    </button>
+    <a class="brand" href="index.html">
+<span class="brand-mark" aria-hidden="true">A</span>      <span class="brand-name">Acme Docs</span>
+    </a>
+    <nav class="tabs" aria-label="Sections">
+      <a href="getting-started/installation.html">Getting Started</a>
+      <a href="guide/writing-content.html">Guide</a>
+      <a href="reference/cli.html">Reference</a>
+      <a href="https://github.com" target="_blank" rel="noopener">Source code</a>
+    </nav>
+    <span class="grow"></span>
+    <button class="search-trigger" type="button" data-search-open aria-label="Search documentation">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <span class="search-label">Search</span>
+      <kbd><span class="mod-key">Ctrl</span> K</kbd>
+    </button>
+    <button class="icon-btn theme-btn" type="button" aria-label="Toggle dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </header>
+</div>
+
+<aside class="sidebar" id="sidebar">
+  <nav aria-label="Site navigation"><ul>
+  <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+  <li class="section"><details><summary>Getting Started</summary><ul>
+  <li><a href="getting-started/installation.html">Installation</a></li>
+  <li><a href="getting-started/configuration.html">Configuration</a></li>
+</ul>
+</details></li>
+  <li class="section"><details><summary>Guide</summary><ul>
+  <li><a href="guide/writing-content.html">Writing content</a></li>
+  <li><a href="guide/embedding.html">Embeds &amp; includes</a></li>
+</ul>
+</details></li>
+  <li class="section"><details><summary>Reference</summary><ul>
+  <li><a href="reference/cli.html">Command line</a></li>
+</ul>
+</details></li>
+  <li><a class="external" href="https://github.com" target="_blank" rel="noopener">Source code</a></li>
+</ul>
+</nav>
+</aside>
+
+<div class="home">
+  <div class="home-bg" aria-hidden="true"></div>
+
+  <section class="hero">
+    <div class="hero-copy">
+      <h1>Write Markdown. Get a documentation site.</h1>
+<p class="hero-text">Describe your pages in one file, drop your Markdown into a folder, and publish a fast, searchable site that works on any host.</p>      <div class="hero-actions">
+        <a class="btn btn-primary" href="getting-started/installation.html">Get started</a>
+        <a class="btn btn-secondary" href="guide/embedding.html">See embeds in action</a>
+      </div>
+    </div>
+    <div class="hero-media">
+      <figure class="window">
+        <figcaption class="window-bar">site.yml</figcaption>
+        <div class="highlight"><pre><span></span><span class="nt">site_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Acme Docs</span>
+
+<span class="nt">nav</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Home</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">index.md</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Getting Started</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Installation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">getting-started/installation.md</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Configuration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">getting-started/configuration.md</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Guide</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Writing content</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">guide/writing-content.md</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Embeds &amp; includes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">guide/embedding.md</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Reference</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Command line</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reference/cli.md</span>
+</pre></div>
+
+      </figure>
+    </div>
+  </section>
+
+  <section class="features" aria-label="Highlights">
+    <a class="feature wide" href="getting-started/configuration.html"><h2>Your layout lives in one file</h2><p>List pages in site.yml and they become the sidebar, the section tabs, and the previous and next links. Leave the list out and the folder structure is used instead.</p></a>
+    <a class="feature" href="reference/cli.html"><h2>Search that works offline</h2><p>Press Ctrl+K or Cmd+K to search every page and heading. No server needed.</p></a>
+    <a class="feature" href="guide/embedding.html"><h2>Embeds and snippets</h2><p>Add YouTube, PDFs and live demos with one line, and reuse Markdown partials.</p></a>
+    <a class="feature wide" href="getting-started/configuration.html"><h2>Light and dark, built in</h2><p>The theme follows the reader&#39;s system setting and remembers their choice, with an accent color you set in one line.</p></a>
+  </section>
+
+  <div class="home-body"><article class="md"><h2 id="quick-start">Quick start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>markdown<span class="w"> </span>pyyaml<span class="w"> </span>jinja2<span class="w"> </span>pygments
+python<span class="w"> </span>build.py<span class="w"> </span>serve
+</code></pre></div>
+
+<p>Open <code>http://127.0.0.1:8000</code>. Edit any file in <code>docs/</code> and the page reloads. When you're ready to publish, run <code>python build.py build</code> and upload the <code>site/</code> folder.</p></article></div>
+
+  <footer class="site-footer">
+    <span>© 2026 Acme Inc.</span>
+  </footer>
+</div>
+<div class="scrim"></div>
+
+<div class="cmdk" id="cmdk" hidden>
+  <div class="cmdk-backdrop" data-search-close></div>
+  <div class="cmdk-panel" role="dialog" aria-modal="true" aria-label="Search documentation">
+    <div class="cmdk-field">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="search-input" type="search" placeholder="Search the documentation" autocomplete="off" spellcheck="false" aria-label="Search documentation">
+      <button class="cmdk-esc" type="button" data-search-close>Esc</button>
+    </div>
+    <div id="search-results" class="cmdk-results"></div>
+    <div class="cmdk-foot"><span><kbd>↑</kbd><kbd>↓</kbd> to move</span><span><kbd>Enter</kbd> to open</span><span><kbd>Esc</kbd> to close</span></div>
+  </div>
+</div>
+
+<script src="_static/search_index.js"></script>
+<script src="_static/script.js"></script>
+</body>
+</html>
