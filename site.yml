@@ -1,6 +1,6 @@
 # mdsite configuration
 site_name: Simulation Workshop
-site_description: Documentation for the Acme platform.
+site_description: My learnings and teachings on Modelica and system simulation.
 site_url: ""                 # set for canonical links, e.g. https://docs.acme.dev
 docs_dir: docs
 site_dir: site
@@ -25,15 +25,13 @@ theme:
 # automatically from the docs/ folder structure.
 nav:
   - Home: index.md
-  - Getting Started:
-      - Installation: getting-started/installation.md
-      - Configuration: getting-started/configuration.md
-  - Guide:
-      - Writing content: guide/writing-content.md
-      - Embeds & includes: guide/embedding.md
-  - Reference:
-      - Command line: reference/cli.md
-  - Source code: https://github.com
+  - Modelica Tutorials:
+      - Installation: Modelica-tutorials/Video-Tutorials.md
+      - Configuration: Modelica-tutorials/Video-Tutorials.md
+  - System Simulation:
+      - Introduction to system simulation: systemsimulation/systemsimulation.md
+      - Other articles on Technology and Simulation: systemsimulation/OtherArticles.md
+  - About Me: About/AboutMe.md
 
 # Files in docs/ named .* or _* are never published (use _snippets/ for partials).
 # exclude_docs: ["drafts/*"]

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Simulation workshop | Simulation Workshop</title>
-<meta name="description" content="Documentation for the Acme platform.">
+<meta name="description" content="Simulation Workshop.">
 <script>
 (function () {
   var d = document.documentElement, m = null;
@@ -32,10 +32,9 @@
 <span class="brand-mark" aria-hidden="true">S</span>      <span class="brand-name">Simulation Workshop</span>
     </a>
     <nav class="tabs" aria-label="Sections">
-      <a href="getting-started/installation.html">Getting Started</a>
-      <a href="guide/writing-content.html">Guide</a>
-      <a href="reference/cli.html">Reference</a>
-      <a href="https://github.com" target="_blank" rel="noopener">Source code</a>
+      <a href="Modelica-tutorials/Video-Tutorials.html">Modelica Tutorials</a>
+      <a href="systemsimulation/systemsimulation.html">System Simulation</a>
+      <a href="About/AboutMe.html">About Me</a>
     </nav>
     <span class="grow"></span>
     <button class="search-trigger" type="button" data-search-open aria-label="Search documentation">
@@ -53,21 +52,17 @@
 <aside class="sidebar" id="sidebar">
   <nav aria-label="Site navigation"><ul>
   <li><a href="index.html" class="active" aria-current="page">Home</a></li>
-  <li class="section"><details><summary>Getting Started</summary><ul>
-  <li><a href="getting-started/installation.html">Installation</a></li>
-  <li><a href="getting-started/configuration.html">Configuration</a></li>
+  <li class="section"><details><summary>Modelica Tutorials</summary><ul>
+  <li><a href="Modelica-tutorials/Video-Tutorials.html">Installation</a></li>
+  <li><a href="Modelica-tutorials/Video-Tutorials.html">Configuration</a></li>
 </ul>
 </details></li>
-  <li class="section"><details><summary>Guide</summary><ul>
-  <li><a href="guide/writing-content.html">Writing content</a></li>
-  <li><a href="guide/embedding.html">Embeds &amp; includes</a></li>
+  <li class="section"><details><summary>System Simulation</summary><ul>
+  <li><a href="systemsimulation/systemsimulation.html">Introduction to system simulation</a></li>
+  <li><a href="systemsimulation/OtherArticles.html">Other articles on Technology and Simulation</a></li>
 </ul>
 </details></li>
-  <li class="section"><details><summary>Reference</summary><ul>
-  <li><a href="reference/cli.html">Command line</a></li>
-</ul>
-</details></li>
-  <li><a class="external" href="https://github.com" target="_blank" rel="noopener">Source code</a></li>
+  <li><a href="About/AboutMe.html">About Me</a></li>
 </ul>
 </nav>
 </aside>
@@ -79,22 +74,26 @@
     <div class="hero-copy">
       <h1>Simulation Workshop</h1>
 <p class="hero-text">Building Worlds through equations</p>      <div class="hero-actions">
-        <a class="btn btn-primary" href="getting-started/installation.html">Get started</a>
-        <a class="btn btn-secondary" href="guide/embedding.html">Modelica Video Tutorials</a>
+        <a class="btn btn-primary" href="systemsimulation/systemsimulation.html">System Simulations</a>
+        <a class="btn btn-secondary" href="Modelica-tutorials/Video-Tutorials.html">Modelica Video Tutorials</a>
       </div>
     </div>
     <div class="hero-media">
       <figure class="window">
-        <figcaption class="window-bar">modelica example.mo</figcaption>
+        <figcaption class="window-bar">A simple Modelica Example</figcaption>
         <div class="highlight"><pre><span></span><span class="kr">model</span> <span class="nc">simpleSpringMass</span>
   <span class="kr">parameter</span> <span class="nb">Real</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
   <span class="kr">parameter</span> <span class="nb">Real</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
   <span class="kr">parameter</span> <span class="nb">Real</span> <span class="n">C</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
   <span class="nb">Real</span> <span class="n">x</span><span class="p">;</span>
   <span class="nb">Real</span> <span class="n">v</span><span class="p">;</span>
+<span class="kr">initial</span> <span class="kr">equation</span> 
+  <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="kr">equation</span>
   <span class="kr">der</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
   <span class="n">M</span><span class="o">*</span><span class="kr">der</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">+</span> <span class="n">C</span><span class="o">*</span><span class="n">v</span> <span class="o">+</span> <span class="n">k</span><span class="o">*</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kr">annotation</span><span class="p">(</span>
+    <span class="n">experiment</span><span class="p">(</span><span class="n">StartTime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">StopTime</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">Tolerance</span> <span class="o">=</span> <span class="mf">1e-06</span><span class="p">,</span> <span class="n">Interval</span> <span class="o">=</span> <span class="mf">0.002</span><span class="p">));</span>
 <span class="kr">end</span> <span class="nc">simpleSpringMass</span><span class="p">;</span>
 </pre></div>
 
@@ -103,21 +102,17 @@
   </section>
 
   <section class="features" aria-label="Highlights">
-    <a class="feature wide" href="systemsimulation/systemsimulation.html"><h2>The Philosophy of System Simulation</h2><p>Read short and comprehensive articles about the concept of system simulation and methodologies used for it. Understand governing equations. System Dynamics, Numerical techniques, Visualizations and lot more.</p></a>
-    <a class="feature" href="reference/cli.html"><h2>Modelica Tips and Tricks</h2><p>Press Ctrl+K or Cmd+K to search every page and heading. No server needed.</p></a>
-    <a class="feature" href="guide/embedding.html"><h2>Modelica Quiz Corner</h2><p>Add YouTube, PDFs and live demos with one line, and reuse Markdown partials.</p></a>
-    <a class="feature wide" href="getting-started/configuration.html"><h2>Articles and Blog Posts</h2><p>The theme follows the reader&#39;s system setting and remembers their choice, with an accent color you set in one line.</p></a>
+    <a class="feature" href="systemsimulation/systemsimulation.html"><h2>The Philosophy of System Simulation</h2><p>Read short and comprehensive articles about the concept of system simulation and methodologies used for it. Understand governing equations. System Dynamics, Numerical techniques, Visualizations and lot more.</p></a>
+    <a class="feature" href="Modelica-tutorials/Video-Tutorials.html"><h2>Modelica Tutorials</h2><p>Press Ctrl+K or Cmd+K to search every page and heading. No server needed.</p></a>
+    <a class="feature" href="Modelica-tutorials/Video-Tutorials.html"><h2>Modelica Video Tutorials</h2><p>Add YouTube, PDFs and live demos with one line, and reuse Markdown partials.</p></a>
+    <a class="feature" href="systemsimulation/OtherArticles.html"><h2>Articles and Blog Posts</h2><p>The theme follows the reader&#39;s system setting and remembers their choice, with an accent color you set in one line.</p></a>
   </section>
 
   <div class="home-body"><article class="md"><h2 id="quick-start">Quick start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>markdown<span class="w"> </span>pyyaml<span class="w"> </span>jinja2<span class="w"> </span>pygments
-python<span class="w"> </span>build.py<span class="w"> </span>serve
-</code></pre></div>
-
-<p>Open <code>http://127.0.0.1:8000</code>. Edit any file in <code>docs/</code> and the page reloads. When you're ready to publish, run <code>python build.py build</code> and upload the <code>site/</code> folder.</p></article></div>
+<p>Are You new to Modelica ? These are the places to check out for more content</p></article></div>
 
   <footer class="site-footer">
-    <span>© simulationworkshop</span>
+    <span>simulationworkshop</span>
   </footer>
 </div>
 <div class="scrim"></div>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Command line | Simulation Workshop</title>
-<meta name="description" content="Documentation for the Acme platform.">
+<title>Articles on Technology and Simulation | Simulation Workshop</title>
+<meta name="description" content="My learnings and teachings on Modelica and system simulation.">
 <script>
 (function () {
   var d = document.documentElement, m = null;
@@ -32,10 +32,9 @@
 <span class="brand-mark" aria-hidden="true">S</span>      <span class="brand-name">Simulation Workshop</span>
     </a>
     <nav class="tabs" aria-label="Sections">
-      <a href="../getting-started/installation.html">Getting Started</a>
-      <a href="../guide/writing-content.html">Guide</a>
-      <a href="cli.html" class="active" aria-current="true">Reference</a>
-      <a href="https://github.com" target="_blank" rel="noopener">Source code</a>
+      <a href="../Modelica-tutorials/Video-Tutorials.html">Modelica Tutorials</a>
+      <a href="systemsimulation.html" class="active" aria-current="true">System Simulation</a>
+      <a href="../About/AboutMe.html">About Me</a>
     </nav>
     <span class="grow"></span>
     <button class="search-trigger" type="button" data-search-open aria-label="Search documentation">
@@ -54,87 +53,35 @@
   <aside class="sidebar" id="sidebar">
     <nav aria-label="Site navigation"><ul>
   <li><a href="../index.html">Home</a></li>
-  <li class="section"><details><summary>Getting Started</summary><ul>
-  <li><a href="../getting-started/installation.html">Installation</a></li>
-  <li><a href="../getting-started/configuration.html">Configuration</a></li>
+  <li class="section"><details><summary>Modelica Tutorials</summary><ul>
+  <li><a href="../Modelica-tutorials/Video-Tutorials.html">Installation</a></li>
+  <li><a href="../Modelica-tutorials/Video-Tutorials.html">Configuration</a></li>
 </ul>
 </details></li>
-  <li class="section"><details><summary>Guide</summary><ul>
-  <li><a href="../guide/writing-content.html">Writing content</a></li>
-  <li><a href="../guide/embedding.html">Embeds &amp; includes</a></li>
+  <li class="section"><details open><summary>System Simulation</summary><ul>
+  <li><a href="systemsimulation.html">Introduction to system simulation</a></li>
+  <li><a href="OtherArticles.html" class="active" aria-current="page">Other articles on Technology and Simulation</a></li>
 </ul>
 </details></li>
-  <li class="section"><details open><summary>Reference</summary><ul>
-  <li><a href="cli.html" class="active" aria-current="page">Command line</a></li>
-</ul>
-</details></li>
-  <li><a class="external" href="https://github.com" target="_blank" rel="noopener">Source code</a></li>
+  <li><a href="../About/AboutMe.html">About Me</a></li>
 </ul>
 </nav>
   </aside>
 
   <main class="content">
     <article class="md">
-      <p class="breadcrumbs"><span>Reference</span></p>
-      <h1 id="command-line">Command line<a class="headerlink" href="#command-line" title="Permanent link">&para;</a></h1>
-<h2 id="build"><code>build</code><a class="headerlink" href="#build" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>build.py<span class="w"> </span>build<span class="w"> </span><span class="o">[</span>-c<span class="w"> </span>site.yml<span class="o">]</span><span class="w"> </span><span class="o">[</span>--strict<span class="o">]</span>
-</code></pre></div>
-
-<p>Converts every page and writes the site to <code>site_dir</code>. The old output is replaced only after the new build succeeds.</p>
-<p><code>--strict</code> makes the command exit with status 1 if there were warnings, such as a broken link, a missing include, or a nav entry that points at a missing file. Use it in CI.</p>
-<h2 id="serve"><code>serve</code><a class="headerlink" href="#serve" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>build.py<span class="w"> </span>serve<span class="w"> </span><span class="o">[</span>-c<span class="w"> </span>site.yml<span class="o">]</span><span class="w"> </span><span class="o">[</span>-p<span class="w"> </span><span class="m">8000</span><span class="o">]</span><span class="w"> </span><span class="o">[</span>--host<span class="w"> </span><span class="m">127</span>.0.0.1<span class="o">]</span>
-</code></pre></div>
-
-<p>Builds the site, serves it locally, and rebuilds when anything in <code>docs/</code>, <code>theme/</code> or <code>site.yml</code> changes. Open pages reload themselves.</p>
-<h2 id="warnings-you-may-see">Warnings you may see<a class="headerlink" href="#warnings-you-may-see" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Message</th>
-<th>Fix</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>link to unknown page</code></td>
-<td>The <code>.md</code> file doesn't exist; check the path</td>
-</tr>
-<tr>
-<td><code>include not found</code></td>
-<td>Check the path, relative to the page or <code>docs/</code></td>
-</tr>
-<tr>
-<td><code>nav: page not found</code></td>
-<td>The file named in <code>nav</code> isn't under <code>docs/</code></td>
-</tr>
-<tr>
-<td><code>link target not found</code></td>
-<td>An image or file link points at a missing asset</td>
-</tr>
-</tbody>
-</table>
-<p>See <a href="../getting-started/configuration.html">configuration</a> for the settings that affect the build.</p>
+      <p class="breadcrumbs"><span>System Simulation</span></p>
+      <h1 id="articles-on-technology-and-simulation">Articles on Technology and Simulation<a class="headerlink" href="#articles-on-technology-and-simulation" title="Permanent link">&para;</a></h1>
     </article>
 
     <footer class="page-footer">
       <nav class="pager" aria-label="Previous and next pages">
-<a class="prev" href="../guide/embedding.html"><small>Previous</small><span>Embeds &amp; includes</span></a>      </nav>
-      <p class="copyright">© simulationworkshop</p>
+<a class="prev" href="systemsimulation.html"><small>Previous</small><span>Introduction to System Simulation</span></a><a class="next" href="../About/AboutMe.html"><small>Next</small><span>Hi, I am Vaisakh,</span></a>      </nav>
+      <p class="copyright">simulationworkshop</p>
     </footer>
   </main>
 
   <aside class="toc" aria-label="On this page">
-    <div class="toc-inner">
-      <p class="toc-title">On this page</p>
-      <ul>
-  <li><a href="#build">build</a></li>
-  <li><a href="#serve">serve</a></li>
-  <li><a href="#warnings-you-may-see">Warnings you may see</a></li>
-</ul>
-
-    </div>
   </aside>
 </div>
 <div class="scrim"></div>
