@@ -6,7 +6,7 @@
 
 ## Building your first model from scratch - Modelica Basics
 
-{% embed "https://youtu.be/KDQhYO-GokA?si=PaiVwkj3nLzf4c11" title="Me at the zoo" caption="The first YouTube video." %}
+{% embed "https://youtu.be/KDQhYO-GokA?si=PaiVwkj3nLzf4c11" title="Me at the zoo1" caption="The first YouTube video." %}
 
 ## Modelica Standard Library - The power of pre-validated models
 
