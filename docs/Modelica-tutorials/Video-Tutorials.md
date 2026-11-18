@@ -18,7 +18,7 @@
 
 ## Building an Electrical Kettle in Modelica - Introudction to multi-domain simulations
 
-{% embed "https://youtu.be/lda62EodEqQ?si=5OaENEFULfQ3ZT_D" title="Me at the zoo" caption="The first YouTube video." %}
+{% embed "https://youtu.be/lda62EodEqQ?si=5OaENEFULfQ3ZT_D" title="Me at the zoo1" caption="The first YouTube video." %}
 
 ## Fluid Property Models in Modelica - Thermodynamics in Simulations
 
