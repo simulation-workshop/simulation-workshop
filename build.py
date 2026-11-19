@@ -715,7 +715,7 @@ class Site:
                     lexer = get_lexer_by_name("text")
                 hero["code_html"] = Markup(pyg_highlight(
                     str(hero["code"]).rstrip("\n"), lexer, HtmlFormatter(cssclass="highlight")))
-            elif hero.get("image"):
+            if hero.get("image"):
                 hero["image_href"] = self.local_href(page, str(hero["image"]), what="hero image")
         features = []
         for f in meta.get("features") if isinstance(meta.get("features"), list) else []:

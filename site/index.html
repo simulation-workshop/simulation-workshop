@@ -29,11 +29,10 @@
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
     </button>
     <a class="brand" href="index.html">
-<span class="brand-mark" aria-hidden="true">S</span>      <span class="brand-name">Simulation Workshop</span>
+<img class="brand-logo" src="assets/small_log.png" alt="" width="26" height="26">      <span class="brand-name">Simulation Workshop</span>
     </a>
     <nav class="tabs" aria-label="Sections">
       <a href="Modelica-tutorials/Video-Tutorials.html">Modelica Tutorials</a>
-      <a href="systemsimulation/systemsimulation.html">System Simulation</a>
       <a href="About/AboutMe.html">About Me</a>
     </nav>
     <span class="grow"></span>
@@ -53,13 +52,8 @@
   <nav aria-label="Site navigation"><ul>
   <li><a href="index.html" class="active" aria-current="page">Home</a></li>
   <li class="section"><details><summary>Modelica Tutorials</summary><ul>
-  <li><a href="Modelica-tutorials/Video-Tutorials.html">Installation</a></li>
-  <li><a href="Modelica-tutorials/Video-Tutorials.html">Configuration</a></li>
-</ul>
-</details></li>
-  <li class="section"><details><summary>System Simulation</summary><ul>
-  <li><a href="systemsimulation/systemsimulation.html">Introduction to system simulation</a></li>
-  <li><a href="systemsimulation/OtherArticles.html">Other articles on Technology and Simulation</a></li>
+  <li><a href="Modelica-tutorials/Video-Tutorials.html">Video Tutorials</a></li>
+  <li><a href="Modelica-tutorials/Written-Tutorials.html">Written Tutorials</a></li>
 </ul>
 </details></li>
   <li><a href="About/AboutMe.html">About Me</a></li>
@@ -74,14 +68,25 @@
     <div class="hero-copy">
       <h1>Simulation Workshop</h1>
 <p class="hero-text">Building Worlds through equations</p>      <div class="hero-actions">
-        <a class="btn btn-primary" href="systemsimulation/systemsimulation.html">System Simulations</a>
-        <a class="btn btn-secondary" href="Modelica-tutorials/Video-Tutorials.html">Modelica Video Tutorials</a>
+        <a class="btn btn-primary" href="Modelica-tutorials/Video-Tutorials.html">Modelica Video Tutorials</a>
+        <a class="btn btn-secondary" href="Modelica-tutorials/Written-Tutorials.html">Modelica Written Tutorials</a>
       </div>
     </div>
     <div class="hero-media">
-      <figure class="window">
-        <figcaption class="window-bar">A simple Modelica Example</figcaption>
-        <div class="highlight"><pre><span></span><span class="kr">model</span> <span class="nc">simpleSpringMass</span>
+      <img class="hero-image" src="assets/small_log.png" alt="Simulation Workshop">
+    </div>
+  </section>
+
+  <section class="features" aria-label="Highlights">
+    <a class="feature" href="systemsimulation/Introduction_openModelica.html"><h2>Getting Started With Open Modelica Ecosystem</h2><p>Basic walkthrough of major tools and libraries required to get started with Open Modelica and associated opertions including simulations, FMU, SSP and python-based automation and co-simulation.</p></a>
+    <a class="feature" href="Modelica-tutorials/Video-Tutorials.html"><h2>Modelica Tutorials</h2><p>Checkout hands-on tutorials on the theoritical concepts and modelica implementation of practically relevant simulation problems on engineering domains. Video tutorials are hosted in youtube at [Simulation Workshop Channel]</p></a>
+    <a class="feature" href="systemsimulation/OtherArticles.html"><h2>Other Articles on Technology and Simulation</h2><p>Read about the interesting developments and insights about cool tools and technologies that are useful in terms of system modeling and simulations. As an open source enthusiast. I want to stick to open source or free tools as much as possible.</p></a>
+  </section>
+
+  <div class="home-body"><article class="md"><h2 id="quick-start">Quick start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
+<p>This is a very basic Modelica code to simulate the motion of a spring - mass - damper system.
+Check out more amazing content at the tutorial sections or find out how to get started below.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">model</span> <span class="nc">simpleSpringMass</span>
   <span class="kr">parameter</span> <span class="nb">Real</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
   <span class="kr">parameter</span> <span class="nb">Real</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
   <span class="kr">parameter</span> <span class="nb">Real</span> <span class="n">C</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
@@ -95,21 +100,18 @@
 <span class="kr">annotation</span><span class="p">(</span>
     <span class="n">experiment</span><span class="p">(</span><span class="n">StartTime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">StopTime</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">Tolerance</span> <span class="o">=</span> <span class="mf">1e-06</span><span class="p">,</span> <span class="n">Interval</span> <span class="o">=</span> <span class="mf">0.002</span><span class="p">));</span>
 <span class="kr">end</span> <span class="nc">simpleSpringMass</span><span class="p">;</span>
-</pre></div>
+</code></pre></div>
 
-      </figure>
-    </div>
-  </section>
-
-  <section class="features" aria-label="Highlights">
-    <a class="feature" href="systemsimulation/systemsimulation.html"><h2>The Philosophy of System Simulation</h2><p>Read short and comprehensive articles about the concept of system simulation and methodologies used for it. Understand governing equations. System Dynamics, Numerical techniques, Visualizations and lot more.</p></a>
-    <a class="feature" href="Modelica-tutorials/Video-Tutorials.html"><h2>Modelica Tutorials</h2><p>Press Ctrl+K or Cmd+K to search every page and heading. No server needed.</p></a>
-    <a class="feature" href="Modelica-tutorials/Video-Tutorials.html"><h2>Modelica Video Tutorials</h2><p>Add YouTube, PDFs and live demos with one line, and reuse Markdown partials.</p></a>
-    <a class="feature" href="systemsimulation/OtherArticles.html"><h2>Articles and Blog Posts</h2><p>The theme follows the reader&#39;s system setting and remembers their choice, with an accent color you set in one line.</p></a>
-  </section>
-
-  <div class="home-body"><article class="md"><h2 id="quick-start">Quick start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
-<p>Are You new to Modelica ? These are the places to check out for more content</p></article></div>
+<div class="admonition tip">
+<p class="admonition-title">Are You new to Modelica ?</p>
+<p>These are the places to check out for more content</p>
+</div>
+<p><strong>Modelica Official Website :</strong> <a href="https://modelica.org">modelica.org</a></p>
+<p><strong>OpenModelica Official Website :</strong> <a href="https://openmodelica.org">openmodelica.org</a></p>
+<p><strong>Modelica by Example by Dr. Michael M. Tiller :</strong> <a href="https://mbe.modelica.university">Modelica by Example</a></p>
+<p><strong>OMPython - A python wrapper for OpenModelica compiler :</strong><a href="https://pypi.org/project/OMPython/">OMPython</a></p>
+<p><strong>FMpy - For running FMUs generated from Modelica in python :</strong> <a href="https://fmpy.readthedocs.io/en/latest/">FMPY</a></p>
+<p><strong>Simulation Workshop Youtube Channel :</strong> <a href="https://www.youtube.com/@simulationworkshop">Simulation Workshop</a></p></article></div>
 
   <footer class="site-footer">
     <span>simulationworkshop</span>

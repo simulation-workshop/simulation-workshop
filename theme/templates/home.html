@@ -22,15 +22,18 @@
       </div>
       {% endif %}
     </div>
-    {% if hero.code_html %}
-    <div class="hero-media">
+    {% if hero.code_html or hero.image_href %}
+    <div class="hero-media{% if hero.code_html and hero.image_href %} hero-media-dual{% endif %}">
+      {% if hero.code_html %}
       <figure class="window">
         <figcaption class="window-bar">{{ hero.code_title or 'example' }}</figcaption>
         {{ hero.code_html }}
       </figure>
+      {% endif %}
+      {% if hero.image_href %}
+      <img class="hero-image" src="{{ hero.image_href }}" alt="{{ hero.image_alt or '' }}">
+      {% endif %}
     </div>
-    {% elif hero.image_href %}
-    <div class="hero-media"><img class="hero-image" src="{{ hero.image_href }}" alt="{{ hero.image_alt or '' }}"></div>
     {% endif %}
   </section>
   {% endif %}

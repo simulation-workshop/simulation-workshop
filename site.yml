@@ -19,18 +19,15 @@ theme:
   code_dark: github-dark
   expand_all: false          # open every nav section by default
   fonts: true                # false = system fonts only (no Google Fonts request)
-  # logo: assets/logo.svg    # optional image next to the site name
+  logo: assets/small_log.png   # optional image next to the site name
 
 # Navigation: this is the layout of the site. Remove `nav` to generate it
 # automatically from the docs/ folder structure.
 nav:
   - Home: index.md
   - Modelica Tutorials:
-      - Installation: Modelica-tutorials/Video-Tutorials.md
-      - Configuration: Modelica-tutorials/Video-Tutorials.md
-  - System Simulation:
-      - Introduction to system simulation: systemsimulation/systemsimulation.md
-      - Other articles on Technology and Simulation: systemsimulation/OtherArticles.md
+      - Video Tutorials: Modelica-tutorials/Video-Tutorials.md
+      - Written Tutorials: Modelica-tutorials/Written-Tutorials.md
   - About Me: About/AboutMe.md
 
 # Files in docs/ named .* or _* are never published (use _snippets/ for partials).
@@ -42,3 +39,4 @@ nav:
 # Any Python-Markdown extension, with optional settings:
 # markdown_extensions:
 #   - pymdownx.tabbed: {alternate_style: true}
+

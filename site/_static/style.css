@@ -12,7 +12,7 @@
   --sidebar-w: 272px;
   --toc-w: 236px;
   --maxw: 1280px;
-  --head: "Bricolage Grotesque", "Avenir Next", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --head: "Comfortaa", "Avenir Next", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --body: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
   --mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
   --ease: cubic-bezier(.2, .7, .2, 1);
@@ -277,6 +277,7 @@ pre.mermaid { background: transparent; border: 0; text-align: center; }
 .window .highlight { margin: 0; border-radius: 0; background: transparent; }
 .window .highlight pre { margin: 0; padding: 20px 24px 24px; overflow: auto; font: .88rem/1.7 var(--mono); }
 .hero-image { width: 100%; border-radius: 22px; border: 1px solid var(--line); }
+.hero-media-dual { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
 
 /* one orchestrated reveal on load */
 @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
@@ -341,6 +342,9 @@ a.feature:hover { border-color: var(--accent); }
   .features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .feature, .feature.wide { grid-column: span 1; }
   .feature.wide { grid-column: span 2; }
+}
+@media (max-width: 700px) {
+  .hero-media-dual { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 900px) {
   .tabs { display: none; }
