@@ -49,6 +49,27 @@
     document.body.removeChild(ta);
   }
 
+  /* ---- Markdown quizzes ---- */
+  $$('.md-quiz').forEach(function (form) {
+    var answers = JSON.parse(form.getAttribute('data-answers'));
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var questions = $$('fieldset[data-question]', form), score = 0;
+      questions.forEach(function (question) {
+        var name = question.getAttribute('data-question');
+        var selected = $('input[name="' + name + '"]:checked', question);
+        var correct = selected && selected.value === answers[name];
+        var result = $('.quiz-question-result', question);
+        question.classList.toggle('is-correct', !!correct);
+        question.classList.toggle('is-incorrect', !correct);
+        result.hidden = false;
+        result.textContent = correct ? 'Correct.' : (selected ? 'Incorrect.' : 'Choose an answer.');
+        if (correct) score++;
+      });
+      $('.quiz-score', form).textContent = score + ' of ' + questions.length + ' correct.';
+    });
+  });
+
   /* ---- scroll-spy for the table of contents ---- */
   var links = $$('.toc a');
   if (links.length) {

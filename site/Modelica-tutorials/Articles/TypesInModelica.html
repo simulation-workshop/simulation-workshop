@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en" data-mode="auto">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bridging the gap between physics and Mathematics in Modelica | Simulation Workshop</title>
+<meta name="description" content="My learnings and teachings on Modelica and system simulation.">
+<script>
+(function () {
+  var d = document.documentElement, m = null;
+  try { m = localStorage.getItem('mdsite-theme'); } catch (e) {}
+  m = m || d.getAttribute('data-mode');
+  if (m !== 'light' && m !== 'dark') m = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  d.setAttribute('data-theme', m);
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Geist:wght@400..700&family=Geist+Mono:wght@400..600&display=swap">
+<link rel="stylesheet" href="../../_static/pygments.css">
+<link rel="stylesheet" href="../../_static/style.css">
+<style>:root{--accent:#00796b;--on-accent:#ffffff}[data-theme="dark"]{--accent:#3ddbc0;--on-accent:#06120f}</style>
+</head>
+<body class="" data-root="../../">
+
+<div class="topbar-wrap">
+  <header class="topbar">
+    <button class="icon-btn menu-btn" type="button" aria-label="Open navigation" aria-controls="sidebar">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+    </button>
+    <a class="brand" href="../../index.html">
+<img class="brand-logo" src="../../assets/small_log.png" alt="" width="26" height="26">      <span class="brand-name">Simulation Workshop</span>
+    </a>
+    <nav class="tabs" aria-label="Sections">
+      <a href="../Video-Tutorials.html">Modelica Tutorials</a>
+      <a href="../../systemsimulation/Introduction_openModelica.html">Other Articles</a>
+      <a href="../../About/AboutMe.html">About Me</a>
+    </nav>
+    <span class="grow"></span>
+    <button class="search-trigger" type="button" data-search-open aria-label="Search documentation">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <span class="search-label">Search</span>
+      <kbd><span class="mod-key">Ctrl</span> K</kbd>
+    </button>
+    <button class="icon-btn theme-btn" type="button" aria-label="Toggle dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </header>
+</div>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav aria-label="Site navigation"><ul>
+  <li><a href="../../index.html">Home</a></li>
+  <li class="section"><details><summary>Modelica Tutorials</summary><ul>
+  <li><a href="../Video-Tutorials.html">Video Tutorials</a></li>
+  <li><a href="../Written-Tutorials.html">Written Tutorials</a></li>
+</ul>
+</details></li>
+  <li class="section"><details><summary>Other Articles</summary><ul>
+  <li><a href="../../systemsimulation/Introduction_openModelica.html">Introduction to open modelica</a></li>
+  <li><a href="../../systemsimulation/OtherArticles.html">Other Articles on Technology &amp; Simulation</a></li>
+</ul>
+</details></li>
+  <li><a href="../../About/AboutMe.html">About Me</a></li>
+</ul>
+</nav>
+  </aside>
+
+  <main class="content">
+    <article class="md">
+      <h1 id="bridging-the-gap-between-physics-and-mathematics-in-modelica">Bridging the gap between physics and Mathematics in Modelica<a class="headerlink" href="#bridging-the-gap-between-physics-and-mathematics-in-modelica" title="Permanent link">&para;</a></h1>
+<p><strong>Units and Dimensions bring physical meaning to mathematical quantities. The number 4 means widely different things depending on whether it is 4m length, 4kg mass or 4C temperature.</strong></p>
+<p>As Simulations stand on the intersection of physical world and mathematical algorithms, efficient management of units is vital for accurate modeling of physical systems using mathematical frameworks.
+​
+Modelica provides an effective way to handle physical quantities using types. Modelica has primitive types such as:</p>
+<ul>
+<li>Real</li>
+<li>Integer</li>
+<li>String</li>
+<li>Boolean</li>
+<li>enumeration</li>
+</ul>
+<p>On top of these, Modelica provides derived types that Inherit from the primitive types. Majority of physical quantities are derived from Real types as they have to represent continuously varying values.</p>
+<p>Derived types enforce:
+​Dimensional Consistency across equations</p>
+<div class="admonition success">
+<p class="admonition-title">This is a valid equation</p>
+<div class="math-block">$$
+\text{Velocity} \times \text{time} = \text{displacement}
+$$</div>
+</div>
+<div class="admonition failure">
+<p class="admonition-title">This is not a valid equation</p>
+<div class="math-block">$$
+Temperature + Pressure = Energy
+$$</div>
+</div>
+<p>​Define range and default values to quantities to improve solver stability, physical consistency and drag and drop implementation of components.
+​</p>
+<h3 id="additional-key-attributes-that-make-modelica-types-even-more-powerful">Additional key attributes that make Modelica types even more powerful:<a class="headerlink" href="#additional-key-attributes-that-make-modelica-types-even-more-powerful" title="Permanent link">&para;</a></h3>
+<p><strong>DisplayUnit &amp; quantity:</strong> Decouples the underlying SI unit used in numerical solver calculations from the units shown in GUI dialogs and plot axes.</p>
+<p><strong>Nominal:</strong> Tells non-linear solvers the expected scale/magnitude of a variable, ensuring balanced numerical precision across vastly different physical scales.</p>
+<div class="admonition hint">
+<p class="admonition-title">The key takeway</p>
+<p>Modelica at its core is a mathematical equation solver and features like units and dimensions provide the physical guard rails to keep the simulation under realistic conditions</p>
+</div>
+    </article>
+
+    <footer class="page-footer">
+      <p class="copyright">simulationworkshop</p>
+    </footer>
+  </main>
+
+  <aside class="toc" aria-label="On this page">
+    <div class="toc-inner">
+      <p class="toc-title">On this page</p>
+      <ul>
+  <li><a href="#additional-key-attributes-that-make-modelica-types-even-more-powerful">Additional key attributes that make Modelica types even more powerful:</a></li>
+</ul>
+
+    </div>
+  </aside>
+</div>
+<div class="scrim"></div>
+
+<div class="cmdk" id="cmdk" hidden>
+  <div class="cmdk-backdrop" data-search-close></div>
+  <div class="cmdk-panel" role="dialog" aria-modal="true" aria-label="Search documentation">
+    <div class="cmdk-field">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="search-input" type="search" placeholder="Search the documentation" autocomplete="off" spellcheck="false" aria-label="Search documentation">
+      <button class="cmdk-esc" type="button" data-search-close>Esc</button>
+    </div>
+    <div id="search-results" class="cmdk-results"></div>
+    <div class="cmdk-foot"><span><kbd>↑</kbd><kbd>↓</kbd> to move</span><span><kbd>Enter</kbd> to open</span><span><kbd>Esc</kbd> to close</span></div>
+  </div>
+</div>
+
+<script src="../../_static/search_index.js"></script>
+<script src="../../_static/script.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+(function () {
+  var last = null;
+  setInterval(function () {
+    fetch('../../_static/build-id.txt', { cache: 'no-store' })
+      .then(function (r) { return r.text(); })
+      .then(function (t) { if (last && t !== last) location.reload(); last = t; })
+      .catch(function () {});
+  }, 1000);
+})();
+</script>
+</body>
+</html>

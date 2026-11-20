@@ -11,7 +11,7 @@
   --topbar-h: 84px;
   --sidebar-w: 272px;
   --toc-w: 236px;
-  --maxw: 1280px;
+  --maxw: 1480px;
   --head: "Comfortaa", "Avenir Next", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --body: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
   --mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
@@ -182,6 +182,26 @@ body.scrolled .topbar { background: color-mix(in srgb, var(--surface) 90%, trans
 .footnote { font-size: .88rem; color: var(--muted); }
 .footnote hr { margin: 2.5em 0 1em; }
 .mdsite-error { padding: 10px 14px; border-radius: 12px; border: 1px solid #e5484d; color: #e5484d; background: color-mix(in srgb, #e5484d 8%, var(--bg)); }
+.math-block { overflow-x: auto; margin: 1.2em 0; padding: .25em 0; }
+
+/* --------------------------------------------------------------------- quizzes */
+.md-quiz {
+  margin: 1.4em 0; padding: 20px;
+  border: 1px solid var(--line); border-radius: 16px; background: var(--surface);
+}
+.md-quiz fieldset { margin: 0 0 18px; padding: 0 0 14px; border: 0; border-bottom: 1px solid var(--line); }
+.md-quiz legend { margin-bottom: 8px; font-weight: 650; }
+.md-quiz label { display: flex; align-items: baseline; gap: 9px; margin: 6px 0; cursor: pointer; }
+.md-quiz input { accent-color: var(--accent); }
+.md-quiz .quiz-question-result { margin: 8px 0 0; font-size: .9rem; font-weight: 600; }
+.md-quiz .is-correct .quiz-question-result { color: #2f9e44; }
+.md-quiz .is-incorrect .quiz-question-result { color: #e5484d; }
+.md-quiz button {
+  padding: 9px 16px; border: 0; border-radius: 999px;
+  background: var(--accent); color: var(--on-accent); font: 600 .92rem var(--body); cursor: pointer;
+}
+.md-quiz button:hover { filter: brightness(.94); }
+.md-quiz .quiz-score { display: inline-block; margin: 0 0 0 12px; font-weight: 600; }
 
 /* -------------------------------------------------------------- admonitions */
 .admonition {

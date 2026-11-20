@@ -12,6 +12,7 @@ The generator converts every page with a predefined theme (theme/) and gives you
   * client-side search (works offline, even from file://)
   * light / dark mode
   * includes and embeds directives (see docs/guide/embedding.md)
+  * interactive multiple-choice quizzes authored in Markdown
   * internal .md links rewritten to the right .html URLs
   * a dev server that rebuilds and reloads the browser on every change
 
@@ -160,6 +161,7 @@ class Page:
     url: str = ""  # site-root-relative URL
     has_h1: bool = False
     uses_mermaid: bool = False
+    uses_math: bool = False
     breadcrumbs: list = field(default_factory=list)
 
 
@@ -178,6 +180,14 @@ FENCE_RE = re.compile(r"^(\s*)(`{3,}|~{3,})\s*([\w+-]*)")
 CLOSE_RE = re.compile(r"^\s*(`{3,}|~{3,})\s*$")
 INCLUDE_RE = re.compile(r"^(\s*)(?:\{%\s*include\s+(.+?)\s*%\}|--8<--\s+(.+?))\s*$")
 EMBED_RE = re.compile(r"^(\s*)\{%\s*embed\s+(.+?)\s*%\}\s*$")
+MATH_LINE_RE = re.compile(r"^(\s*)\$\$(.*?)\$\$\s*$")
+MATH_OPEN_RE = re.compile(r"^(\s*)\$\$\s*$")
+MATH_CLOSE_RE = re.compile(r"^(\s*)\$\$\s*$")
+INLINE_MATH_RE = re.compile(r"\$\$(.+?)\$\$")
+QUIZ_RE = re.compile(r"^(\s*)Quiz:\s*$")
+QUIZ_QUESTION_RE = re.compile(r"^(\s*)-\s+Q(\d+):\s*(.*?)\s*$")
+QUIZ_CHOICE_RE = re.compile(r"^(\s*)-\s+([A-Z]):\s*(.*?)\s*$")
+QUIZ_ANSWER_RE = re.compile(r"^(\s*)-\s+Answer:\s*([A-Z])\s*$")
 
 YT_RE = re.compile(r"(?:youtube\.com/(?:watch\?(?:.*&)?v=|embed/|shorts/|live/)|youtu\.be/)([\w-]{11})")
 VIMEO_RE = re.compile(r"vimeo\.com/(?:video/)?(\d+)")
@@ -210,6 +220,7 @@ class DirectivePreprocessor(Preprocessor):
         super().__init__(md)
         self.site = site
         self.page = page
+        self.quiz_count = 0
 
     def run(self, lines):
         base = (self.site.docs_dir / self.page.src).parent
@@ -249,6 +260,31 @@ class DirectivePreprocessor(Preprocessor):
                 i += 1
                 continue
 
+            m = MATH_LINE_RE.match(line)
+            if m:
+                out += self.stash(self.math_block(m.group(2)), m.group(1))
+                i += 1
+                continue
+
+            m = MATH_OPEN_RE.match(line)
+            if m:
+                j = i + 1
+                while j < len(lines):
+                    closing = MATH_CLOSE_RE.match(lines[j])
+                    if closing and len(closing.group(1)) >= len(m.group(1)):
+                        break
+                    j += 1
+                if j == len(lines):
+                    self.site.warn(f"{self.page.src}: unclosed display math block")
+                    out.append(line)
+                    i += 1
+                    continue
+                self.page.uses_math = True
+                markup = self.math_block("\n".join(lines[i + 1:j]))
+                out += self.stash(markup, m.group(1))
+                i = j + 1
+                continue
+
             m = INCLUDE_RE.match(line)
             if m:
                 out += self.include(m.group(2) or m.group(3), m.group(1), depth, base_dir)
@@ -261,9 +297,134 @@ class DirectivePreprocessor(Preprocessor):
                 i += 1
                 continue
 
+            m = QUIZ_RE.match(line)
+            if m:
+                quiz_lines = []
+                j = i + 1
+                while j < len(lines):
+                    candidate = lines[j]
+                    if candidate.strip() and len(candidate) == len(candidate.lstrip()):
+                        break
+                    quiz_lines.append(candidate)
+                    j += 1
+                out += self.stash(self.quiz(quiz_lines), m.group(1))
+                i = j
+                continue
+
+            if "`" not in line and INLINE_MATH_RE.search(line):
+                def stash_inline_math(match):
+                    return self.md.htmlStash.store(self.math_inline(match.group(1)))
+
+                line = INLINE_MATH_RE.sub(stash_inline_math, line)
             out.append(line)
             i += 1
         return out
+
+    def math_block(self, expression: str) -> str:
+        if not expression.strip():
+            self.site.warn(f"{self.page.src}: empty display math block")
+            return '<div class="mdsite-error">Math format error: equation is empty</div>'
+        self.page.uses_math = True
+        return f'<div class="math-block">$$\n{esc(expression.strip())}\n$$</div>'
+
+    def math_inline(self, expression: str) -> str:
+        self.page.uses_math = True
+        return f'<span class="math-inline">\\({esc(expression)}\\)</span>'
+
+    def quiz(self, lines) -> str:
+        questions = []
+        current = None
+        error = None
+
+        for line in lines:
+            if not line.strip():
+                continue
+            question = QUIZ_QUESTION_RE.match(line)
+            choice = QUIZ_CHOICE_RE.match(line)
+            answer = QUIZ_ANSWER_RE.match(line)
+            if question:
+                if current:
+                    questions.append(current)
+                current = {
+                    "indent": len(question.group(1)),
+                    "number": question.group(2),
+                    "text": question.group(3).strip(),
+                    "choices": [],
+                    "answer": None,
+                }
+                if not current["text"]:
+                    error = "question text cannot be empty"
+                    break
+            elif choice or answer:
+                if current is None:
+                    error = "choices and answers must follow a question"
+                    break
+                match = choice or answer
+                if len(match.group(1)) <= current["indent"]:
+                    error = "choices and answers must be indented under their question"
+                    break
+                if choice:
+                    letter, text = choice.group(2), choice.group(3).strip()
+                    if not text or any(item["letter"] == letter for item in current["choices"]):
+                        error = f"question Q{current['number']} has an empty or duplicate choice"
+                        break
+                    current["choices"].append({"letter": letter, "text": text})
+                else:
+                    if current["answer"] is not None:
+                        error = f"question Q{current['number']} has more than one answer"
+                        break
+                    current["answer"] = answer.group(2)
+            else:
+                error = f"unrecognized quiz entry: {line.strip()}"
+                break
+
+        if current:
+            questions.append(current)
+        seen_numbers = set()
+        if not error and not questions:
+            error = "add at least one question"
+        for question in questions:
+            if error:
+                break
+            number = question["number"]
+            letters = {item["letter"] for item in question["choices"]}
+            if number in seen_numbers:
+                error = f"duplicate question number Q{number}"
+            elif len(letters) < 2:
+                error = f"question Q{number} needs at least two choices"
+            elif question["answer"] not in letters:
+                error = f"question Q{number} needs an Answer matching one of its choices"
+            seen_numbers.add(number)
+
+        if error:
+            self.site.warn(f"{self.page.src}: invalid quiz ({error})")
+            return f'<div class="mdsite-error">Quiz format error: {esc(error)}</div>'
+
+        self.quiz_count += 1
+        quiz_id = f"quiz-{re.sub(r'[^a-zA-Z0-9_-]', '-', self.page.src)}-{self.quiz_count}"
+        answers = {f"q{q['number']}": q["answer"] for q in questions}
+        parts = [
+            f'<form class="md-quiz" id="{esc(quiz_id)}" data-quiz '
+            f'data-answers="{esc(json.dumps(answers))}">'
+        ]
+        for question in questions:
+            name = f"q{question['number']}"
+            parts.append(
+                f'<fieldset data-question="{esc(name)}"><legend>{esc(question["text"])}</legend>'
+            )
+            for option in question["choices"]:
+                option_id = f"{quiz_id}-{name}-{option['letter']}"
+                parts.append(
+                    f'<label for="{esc(option_id)}"><input id="{esc(option_id)}" type="radio" '
+                    f'name="{esc(name)}" value="{esc(option["letter"])}"> {esc(option["text"])}</label>'
+                )
+            parts.append('<p class="quiz-question-result" aria-live="polite" hidden></p></fieldset>')
+        parts.extend([
+            '<button type="submit">Check answers</button>',
+            '<p class="quiz-score" aria-live="polite"></p>',
+            '</form>',
+        ])
+        return "".join(parts)
 
     # ----- include ---------------------------------------------------------
     def include(self, argstr, indent, depth, base_dir):

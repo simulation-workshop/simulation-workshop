@@ -33,6 +33,7 @@
     </a>
     <nav class="tabs" aria-label="Sections">
       <a href="Video-Tutorials.html" class="active" aria-current="true">Modelica Tutorials</a>
+      <a href="../systemsimulation/Introduction_openModelica.html">Other Articles</a>
       <a href="../About/AboutMe.html">About Me</a>
     </nav>
     <span class="grow"></span>
@@ -57,6 +58,11 @@
   <li><a href="Written-Tutorials.html" class="active" aria-current="page">Written Tutorials</a></li>
 </ul>
 </details></li>
+  <li class="section"><details><summary>Other Articles</summary><ul>
+  <li><a href="../systemsimulation/Introduction_openModelica.html">Introduction to open modelica</a></li>
+  <li><a href="../systemsimulation/OtherArticles.html">Other Articles on Technology &amp; Simulation</a></li>
+</ul>
+</details></li>
   <li><a href="../About/AboutMe.html">About Me</a></li>
 </ul>
 </nav>
@@ -66,24 +72,31 @@
     <article class="md">
       <p class="breadcrumbs"><span>Modelica Tutorials</span></p>
       <h1 id="written-tutorials-on-modelica">Written tutorials on Modelica<a class="headerlink" href="#written-tutorials-on-modelica" title="Permanent link">&para;</a></h1>
-<hr />
-<p>title: Installing on Windows
-description: Step-by-step Windows setup.
-hide_title: false
-search: true</p>
-<hr />
-<h1 id="installing-on-windows">Installing on Windows<a class="headerlink" href="#installing-on-windows" title="Permanent link">&para;</a></h1>
-<p>Content starts here.</p>
+<h2 id="units-and-dimensions-handling-in-modelica"><a href="Articles/TypesInModelica.html">Units and Dimensions handling in Modelica</a><a class="headerlink" href="#units-and-dimensions-handling-in-modelica" title="Permanent link">&para;</a></h2>
+<pre class="mermaid">flowchart LR;
+A(Numerical Value) --&gt; B(Units) --&gt; C(Physical Dimensions) --&gt; D(Consistant Equations) --&gt; E(Stable Simulations)</pre>
+<p>As Simulations stand on the intersection of physical world and mathematical algorithms, efficient management of units is vital for accurate modeling of physical systems using mathematical frameworks. <a href="Articles/TypesInModelica.html">Read a quick writeup</a> on how Modelica handles physical units and dimensions into its simulation eco-system.</p>
+<h2 id="modelica-quiz">Modelica Quiz<a class="headerlink" href="#modelica-quiz" title="Permanent link">&para;</a></h2>
+<p>Find multiple choice questions to test your knowledge on Modelica language</p>
+<p><a href="../systemsimulation/Quiz/Quiz.html">Quiz Here</a></p>
     </article>
 
     <footer class="page-footer">
       <nav class="pager" aria-label="Previous and next pages">
-<a class="prev" href="Video-Tutorials.html"><small>Previous</small><span>Video Tutorials on Modelica</span></a><a class="next" href="../About/AboutMe.html"><small>Next</small><span>About me</span></a>      </nav>
+<a class="prev" href="Video-Tutorials.html"><small>Previous</small><span>Video Tutorials on Modelica</span></a><a class="next" href="../systemsimulation/Introduction_openModelica.html"><small>Next</small><span>Introduction to Open Modelica Eco-system</span></a>      </nav>
       <p class="copyright">simulationworkshop</p>
     </footer>
   </main>
 
   <aside class="toc" aria-label="On this page">
+    <div class="toc-inner">
+      <p class="toc-title">On this page</p>
+      <ul>
+  <li><a href="#units-and-dimensions-handling-in-modelica">Units and Dimensions handling in Modelica</a></li>
+  <li><a href="#modelica-quiz">Modelica Quiz</a></li>
+</ul>
+
+    </div>
   </aside>
 </div>
 <div class="scrim"></div>
@@ -103,6 +116,10 @@ search: true</p>
 
 <script src="../_static/search_index.js"></script>
 <script src="../_static/script.js"></script>
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: true, theme: document.documentElement.dataset.theme === "dark" ? "dark" : "default" });
+</script>
 <script>
 (function () {
   var last = null;

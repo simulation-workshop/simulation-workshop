@@ -28,6 +28,9 @@ nav:
   - Modelica Tutorials:
       - Video Tutorials: Modelica-tutorials/Video-Tutorials.md
       - Written Tutorials: Modelica-tutorials/Written-Tutorials.md
+  - Other Articles:
+      - Introduction to open modelica: systemsimulation/Introduction_openModelica.md
+      - Other Articles on Technology & Simulation: systemsimulation/OtherArticles.md
   - About Me: About/AboutMe.md
 
 # Files in docs/ named .* or _* are never published (use _snippets/ for partials).
